@@ -13,6 +13,16 @@ Requirements :
 2. Golang compiler
 3. Postman
 
+Instructions :
+-------------------------------------------------------------------------------------------
+1. Clone the repository at "https://github.com/DheerajGk123/Assignment"
+2. Start mongodb server. Ex. >> mongod --dbpath="_path_to_local_repository_/database"
+3. Navigate to "source_code" folder.
+4. Execute "main.go" in "source_code" directory. Ex. >> go run main.go 
+5. The server begins at "http://localhost:8080"
+6. Postman can be used for Route testing.
+7. Paths are specified in the "Working" section described below.
+
 Working :
 -------------------------------------------------------------------------------------------
 "/create" path handles data insertion operation into the database by retriving POST body data

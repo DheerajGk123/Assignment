@@ -1,0 +1,88 @@
+ASSIGNMENT
+
+Database Details :
+-------------------------------------------------------------------------------------------
+Database Used : MongoDB
+Database Name : Assignment
+Collection Name : User
+Fields/Attributes : id, name, dob, address, description, createAt
+
+Requirements :
+-------------------------------------------------------------------------------------------
+1. MongoDB Community Server
+2. Golang compiler
+3. Postman
+
+Working :
+-------------------------------------------------------------------------------------------
+"/create" path handles data insertion operation into the database by retriving POST body data
+"/read/{ID}" path handles data retrival corresopnfing to the provided ID
+"/update/{ID}" path handles update operation on specified ID and PUT body Parameters
+"/delete/{ID}" handle deletion operation on specified ID
+
+Schema is simple and is specified in the program
+
+CreateData() reads POST body and evokes InsertData() for insertion
+ReadData() reads GET URL parameters and evokes RetriveData() for reading operation
+UpdateData() reads PUT body and URL parametersand evokes UpdateDBData() for update operation
+DeleteData() reads URL parameter and evokes DeleteDBData() for deletion
+
+
+Connect, Disconnect and CRUD Methods :
+-------------------------------------------------------------------------------------------
+1) DBconnect() : Create a connection to database
+
+    func DBconnect() (*mongo.Client, error) { 
+    }
+
+    Input Parameters : None
+    Returns : *mongo.Client object and error if any
+
+
+
+2) DBdisconnect()  : Close database connection  
+
+    func DBconnect(client *mongo.Client) error { 
+    }
+
+    Input Parameters : *mongo.Client object (ie. object with database connection)
+    Returns :  error if any
+
+
+3) InsertData()  : Insert data into database   
+
+    func InsertData(client *mongo.Client, u1 interface{}) error {
+    }
+
+    Input Parameters : *mongo.Client object , input data bound to a structure
+    Returns :  error if any
+
+
+4) RetriveData()  : Get/Read  data from database   
+
+    func RetriveData(client *mongo.Client, id string, Robj interface{}) error {
+    }
+
+    Input Parameters : *mongo.Client object , id string, structure object where the data is to be stored
+    Returns :  error if any
+
+
+5) UpdateDBData()  : Update/Modify existing data from database   
+
+    func UpdateDBData(client *mongo.Client, filter primitive.D, update primitive.D) error {
+    }
+
+    Input Parameters : *mongo.Client object , bson document (update parameter ex."id"), bson document (update data)
+    Returns :  error if any
+
+
+
+6) DeleteDBData()  : Delete data from database   
+
+    func DeleteDBData(client *mongo.Client, id string) error {
+    }
+
+    Input Parameters : *mongo.Client object , id string
+    Returns :  error if any
+
+
